@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { useState } from "react";
+import "./App.css";
+import Pokegrid from "./components/Pokegrid.tsx";
 
-import './App.css'
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {Example} from './components/Example.tsx'
+interface PokemonType {
+  name: string;
+}
 
-const App : React.FC = () => {
+const App: React.FC = () => {
+  const [activeType, setActiveType] = useState<PokemonType>({ name: "water" });
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="*" element={<Example />} />
-        </Routes>
-      </BrowserRouter>
+      <Pokegrid type={activeType.name} />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
