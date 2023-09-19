@@ -1,0 +1,46 @@
+
+
+
+div {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+  }
+  
+
+  #Title {
+    margin: 0;
+    text-align: center; 
+    flex-grow: 1;
+  }
+  
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  
+
+  #typing {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    margin-right: 10px;
+    align-items:self-start;
+  }
+  
+
+  #filterbutton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  
