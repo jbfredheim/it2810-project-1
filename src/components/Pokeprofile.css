@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 10px;
-    background-color:rgb(255, 0, 68);
+    background-color: rgb(255, 0, 68);
     border-radius: 10%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -24,6 +24,5 @@
     min-width: 160px;
     height: 160px;
     overflow: hidden;
-    top: -30px;
 
 }
