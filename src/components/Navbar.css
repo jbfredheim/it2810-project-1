@@ -6,7 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -46,5 +47,23 @@ nav {
     padding: 5px 10px;
     cursor: pointer;
 }
-  
-  
+
+
+
+@media screen and (max-width: 400px) {
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    #Title {
+        margin: 0;
+        position: static;
+        text-align: center;
+        flex-grow: 1;
+        margin-bottom: 10px;
+        padding-right: 12%;
+    }
+    
+}

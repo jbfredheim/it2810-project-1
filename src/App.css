@@ -1,4 +1,6 @@
 .app {
     display: grid;
     grid-template-columns: 1fr;
+    color: bisque;
+    background-color: black;
 }

@@ -87,17 +87,19 @@ const Pokegrid = ({ type, selectCallback }: PokeGridProps) => {
   }
 
   return (
-    <div className={"pokegrid"}>
-      {data &&
-        data["pokemon"].map((result: { pokemon: Pokemon }, index: number) => {
-          return (
-            <PokeCell
-              key={index}
-              name={result.pokemon.name}
-              clickCallback={() => selectCallback(result.pokemon)}
-            />
-          );
-        })}
+    <div id = {"wrapper"}>
+      <div className={"pokegrid"}>
+        {data &&
+          data["pokemon"].map((result: { pokemon: Pokemon }, index: number) => {
+            return (
+              <PokeCell
+                key={index}
+                name={result.pokemon.name}
+                clickCallback={() => selectCallback(result.pokemon)}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 };
