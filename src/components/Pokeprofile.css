@@ -1,0 +1,26 @@
+#pokeprofile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+}
+
+#pokeprofile #left-col * {
+    margin-top: 2px;
+}
+
+#pokeprofile h2 {
+    margin-bottom: 5px;
+}
+
+#pokeprofile h4 {
+    margin-bottom: 5px;
+}
+
+#pokeprofile img {
+    position: relative;
+    min-width: 160px;
+    height: 160px;
+    overflow: hidden;
+    top: -30px;
+
+}
