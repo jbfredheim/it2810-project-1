@@ -20,6 +20,7 @@ const Navbar = ({selectedType, filterCallback}: NavBarProps) => {
                     name="Filter Type"
                     id="type-selector"
                     placeholder="Choose Type"
+                    data-testid={"type-selector"}
                     onChange={(e) => {
                         filterCallback({name: e.target.value});
                     }}
