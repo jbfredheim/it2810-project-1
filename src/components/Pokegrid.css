@@ -9,8 +9,8 @@
     width: 100%;
     justify-content: center;
 }
-  
-#wrapper{
+
+#wrapper {
     margin: auto;
     display: flex;
     justify-content: center;
@@ -19,11 +19,11 @@
 
 .pokecell {
     display: grid;
-    grid-template-columns: 1;
-    width: 50px;
-    min-height: 50px;
+    grid-template-columns: 1fr;
+    width: 72px;
+    min-height: 72px;
     margin: 5px;
-    background-color: rgba(255, 0, 0, 0.3);
+    background-color: rgba(0, 0, 255, 0.3);
     font-size: 12px;
     margin-left: 22%;
     border-radius: 10px;
@@ -39,6 +39,11 @@
     height: 40px;
 }
 
+.addFavourite {
+    display: block;
+
+}
+
 @media (min-width: 320px) {
     .pokegrid {
         grid-template-columns: repeat(4, 1fr);
@@ -46,8 +51,10 @@
     }
 
     .pokecell {
-        background-color: rgba(0, 255, 0, 0.3);
+        background-color: rgba(0, 0, 255, 0.3);
         margin-left: 17%;
+        width: 64px;
+        min-height: 64px;
     }
 }
 
@@ -58,7 +65,9 @@
     }
 
     .pokecell {
-        background-color: rgba(0, 255, 0, 0.3);
+        background-color: rgba(0, 0, 255, 0.3);
+        width: 60px;
+        min-height: 60px;
     }
 }
 
@@ -72,6 +81,25 @@
         background-color: rgba(0, 0, 255, 0.3);
         width: 10vw;
         margin-left: 18%;
+    }
+}
+
+@media (min-width: 800px) {
+    .pokegrid {
+        grid-template-columns: repeat(8, 1fr);
+
+    }
+
+    .pokecell {
+        background-color: rgba(0, 0, 255, 0.3);
+        width: 10vw;
+        margin-left: 18%;
+        font-size: 15px;
+    }
+
+    .pokecell .image {
+        width: 60px;
+        height: 60px;
     }
 }
 
