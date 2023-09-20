@@ -1,30 +1,15 @@
 import "./Pokegrid.css";
 import { useQuery } from "@tanstack/react-query";
 import { fetchJson } from "./Api.tsx";
+import { Pokemon, PokemonApiResponse, UseQueryResponse } from "./types.tsx";
 
 interface PokeCellProps {
   name: string;
+
+  clickCallback(): void;
 }
 
-type Pokemon = {
-  name: string;
-  types?: string[];
-  url?: string;
-};
-
-interface PokemonApiResponse extends Pokemon {
-  abilities: Array<{ name: string; url: string }>;
-  sprites: { front_default: string };
-}
-
-interface UseQueryResponse<T> {
-  isLoading: boolean;
-  isError: boolean;
-  data: T | undefined;
-  error: Error | null;
-}
-
-const PokeCell = ({ name }: PokeCellProps) => {
+const PokeCell = ({ name, clickCallback }: PokeCellProps) => {
   const {
     isLoading,
     isError,
@@ -45,19 +30,19 @@ const PokeCell = ({ name }: PokeCellProps) => {
     return <span>Error: {error ? error.message : "unknown error"}</span>;
   }
 
+  if (data && !data.sprites.front_default) {
+    return;
+  }
+
   return (
     <div className="pokecell">
-      <a
-        onClick={() => {
-          console.log("Clicked " + name);
-        }}
-      >
+      <a onClick={clickCallback}>
         {/*<img src={() => fetchData(name)}></img>*/}
         {data ? (
           <div>
             <img
               className="image"
-              src={data["sprites"]["front_default"]}
+              src={data.sprites.front_default}
               alt={"Image of pokemon " + name}
             ></img>
             {name}
@@ -75,10 +60,12 @@ interface PokemonListApiResponse {
 }
 
 interface PokeGridProps {
-  type?: string;
+  type: string;
+
+  selectCallback(resultElement: Pokemon): void;
 }
 
-const Pokegrid = ({ type }: PokeGridProps) => {
+const Pokegrid = ({ type, selectCallback }: PokeGridProps) => {
   const {
     isLoading,
     isError,
@@ -103,7 +90,13 @@ const Pokegrid = ({ type }: PokeGridProps) => {
     <div className={"pokegrid"}>
       {data &&
         data["pokemon"].map((result: { pokemon: Pokemon }, index: number) => {
-          return <PokeCell key={index} name={result["pokemon"].name} />;
+          return (
+            <PokeCell
+              key={index}
+              name={result.pokemon.name}
+              clickCallback={() => selectCallback(result.pokemon)}
+            />
+          );
         })}
     </div>
   );
